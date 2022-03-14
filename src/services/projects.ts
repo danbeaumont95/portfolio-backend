@@ -2,6 +2,10 @@ import Projects, { ProjectsDocument } from "../models/Projects";
 import {
   DocumentDefinition,
 } from 'mongoose';
+import config from 'config';
+
+const dbUri: string = (process.env.dbUri as string);
+
 
 export async function getAllProjects() {
   try {
