@@ -7,6 +7,7 @@ export interface ProjectsDocument extends mongoose.Document {
   languages: Array<string>;
   fullStack: boolean;
   image: string;
+  link: string;
 }
 
 const ProjectsSchema = new mongoose.Schema({
@@ -14,7 +15,8 @@ const ProjectsSchema = new mongoose.Schema({
   description: { type: String, default: '', required: true },
   languages: { type: Array, default: [], required: true },
   fullStack: { type: Boolean, default: false },
-  image: { type: String, default: '' }
+  image: { type: String, default: '' },
+  link: { type: String, default: '' }
 }, {
   timestamps: true,
 });
