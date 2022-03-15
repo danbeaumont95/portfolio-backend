@@ -12,8 +12,6 @@ const allowedOrigins = ['http://localhost:3000'];
 const dbUri: string = (process.env.dbUri as string);
 const port = process.env.PORT || 1337;
 
-console.log(dbUri);
-
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
@@ -30,8 +28,6 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, } as 
     });
     app.listen(port, () => {
       console.log(`Server listening at ${port}`);
-
-
     });
     routes(app);
   });
