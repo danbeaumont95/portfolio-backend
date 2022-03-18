@@ -2,6 +2,6 @@ import { getAllProjectsHandler, postNewProjectHandler } from './controllers/proj
 import { Express } from 'express';
 
 export default function app(app: Express) {
-  app.get('/', getAllProjectsHandler);
-  app.post('/', postNewProjectHandler);
+  app.get('/api/', getAllProjectsHandler);
+  app.post('/api/', postNewProjectHandler);
 }
