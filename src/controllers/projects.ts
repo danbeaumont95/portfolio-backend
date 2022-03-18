@@ -77,7 +77,8 @@ export async function postNewProjectHandler(req: Request, res: Response) {
         description,
         languages,
         fullStack,
-        link
+        link,
+        source
       } = fields;
       if (!name || !description || !languages || !fullStack || !link) {
         throw new Error('[BadRequest] Missing information');
@@ -87,13 +88,15 @@ export async function postNewProjectHandler(req: Request, res: Response) {
       const projectLanguages = JSON.parse(languages[0]);
       const projectFullStack = JSON.parse(fullStack[0]);
       const projectLink = link[0];
+      const projectSource = source[0];
 
       const newProject = await Projects.create({
         name: projectName,
         description: projectDescription,
         languages: projectLanguages,
         fullStack: projectFullStack,
-        link: projectLink
+        link: projectLink,
+        source: projectSource
       });
 
       const { _id } = newProject;
