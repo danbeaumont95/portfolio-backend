@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import axios from "axios";
 
 export async function sendEmailHandler(req: Request, res: Response) {
-  console.log('called');
   const respBody = {
     success: false,
     message: '',
