@@ -83,7 +83,7 @@ function postNewProjectHandler(req, res) {
         try {
             const form = new multiparty_1.default.Form();
             form.parse(req, (error, fields, files) => __awaiter(this, void 0, void 0, function* () {
-                const { name, description, languages, fullStack, link } = fields;
+                const { name, description, languages, fullStack, link, source } = fields;
                 if (!name || !description || !languages || !fullStack || !link) {
                     throw new Error('[BadRequest] Missing information');
                 }
@@ -92,12 +92,14 @@ function postNewProjectHandler(req, res) {
                 const projectLanguages = JSON.parse(languages[0]);
                 const projectFullStack = JSON.parse(fullStack[0]);
                 const projectLink = link[0];
+                const projectSource = source[0];
                 const newProject = yield Projects_1.default.create({
                     name: projectName,
                     description: projectDescription,
                     languages: projectLanguages,
                     fullStack: projectFullStack,
-                    link: projectLink
+                    link: projectLink,
+                    source: projectSource
                 });
                 const { _id } = newProject;
                 if (error) {
