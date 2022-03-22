@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --config nodemon.json src/app.ts",
-    "build": "tsc",
     "start": "node dist/app.js",
     "postinstall": "tsc",
-    "watch-node": "nodemon dist/app.js",
+    "build": "tsc",
+    "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
