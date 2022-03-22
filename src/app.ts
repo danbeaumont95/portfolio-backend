@@ -26,7 +26,7 @@ const options: cors.CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: dbUri,
+  origin: 'https://dan-beaumont-ts-portfolio.web.app/',
   preflightContinue: false,
 };
 
