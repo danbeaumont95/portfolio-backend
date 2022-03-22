@@ -14,6 +14,7 @@ const port = process.env.PORT || 1337;
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
+
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, } as ConnectOptions)
   .then(() => {
     const app = express();
