@@ -1,5 +1,7 @@
 import express from 'express';
-require('dotenv').config({ path: __dirname + '/.env' });
+console.log(__dirname, '__dirname');
+// require('dotenv').config({ path: __dirname + '../.env' });
+require('dotenv').config();
 import cors from 'cors';
 import mongoose, { ConnectOptions } from 'mongoose';
 
@@ -7,6 +9,7 @@ import routes from './routes';
 const router = express.Router();
 
 const allowedOrigins = ['http://localhost:3001'];
+
 const dbUri: string = (process.env.dbUri as string);
 
 const port = process.env.PORT || 1337;
