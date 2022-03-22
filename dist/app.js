@@ -13,13 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
+console.log(__dirname, '__dirname');
+// require('dotenv').config({ path: __dirname + '../.env' });
+require('dotenv').config();
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const routes_1 = __importDefault(require("./routes"));
 const router = express_1.default.Router();
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3001'];
 const dbUri = process.env.dbUri;
 const port = process.env.PORT || 1337;
 const options = {
@@ -27,8 +28,8 @@ const options = {
 };
 mongoose_1.default.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, })
     .then(() => {
-    const app = (0, express_1.default)();
-    app.use((0, cors_1.default)(options));
+    const app = express_1.default();
+    app.use(cors_1.default(options));
     app.use(express_1.default.json());
     app.use(express_1.default.urlencoded({ extended: false }));
     app.use('/api', router);
@@ -38,5 +39,5 @@ mongoose_1.default.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: t
     app.listen(port, () => {
         console.log(`Server listening at ${port}`);
     });
-    (0, routes_1.default)(app);
+    routes_1.default(app);
 });
