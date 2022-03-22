@@ -16,4 +16,4 @@ This is the backend for my full stack portfolio site. This is a very simple back
 - SendInBlue
 - many more packages
 
-## Live API: https://dan-beaumont-ts-portfolio-be.herokuapp.com/
+## Live API: https://dan-beaumont-ts-portfolio-be.herokuapp.com/api
