@@ -7,7 +7,7 @@ import mongoose, { ConnectOptions } from 'mongoose';
 import routes from './routes';
 const router = express.Router();
 
-const allowedOrigins = ['http://localhost:3001'];
+const allowedOrigins = ['http://localhost:3001', 'https://dan-beaumont-ts-portfolio.web.app/', 'https://dan-beaumont-ts-portfolio.web.app/contact'];
 
 const dbUri: string = (process.env.dbUri as string);
 
