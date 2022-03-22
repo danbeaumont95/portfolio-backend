@@ -13,14 +13,28 @@ const dbUri: string = (process.env.dbUri as string);
 
 const port = process.env.PORT || 1337;
 
+// const options: cors.CorsOptions = {
+//   origin: allowedOrigins
+// };
 const options: cors.CorsOptions = {
-  origin: allowedOrigins
+  allowedHeaders: [
+    'Origin',
+    'X-Requested-With',
+    'Content-Type',
+    'Accept',
+    'X-Access-Token',
+  ],
+  credentials: true,
+  methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+  origin: dbUri,
+  preflightContinue: false,
 };
 
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, } as ConnectOptions)
   .then(() => {
     const app = express();
     app.use(cors(options));
+    app.options('*', cors(options));
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));

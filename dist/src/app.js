@@ -23,13 +23,27 @@ const router = express_1.default.Router();
 const allowedOrigins = ['http://localhost:3001', 'https://dan-beaumont-ts-portfolio.web.app/', 'https://dan-beaumont-ts-portfolio.web.app/contact'];
 const dbUri = process.env.dbUri;
 const port = process.env.PORT || 1337;
+// const options: cors.CorsOptions = {
+//   origin: allowedOrigins
+// };
 const options = {
-    origin: allowedOrigins
+    allowedHeaders: [
+        'Origin',
+        'X-Requested-With',
+        'Content-Type',
+        'Accept',
+        'X-Access-Token',
+    ],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    origin: dbUri,
+    preflightContinue: false,
 };
 mongoose_1.default.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, })
     .then(() => {
     const app = express_1.default();
     app.use(cors_1.default(options));
+    app.options('*', cors_1.default(options));
     app.use(express_1.default.json());
     app.use(express_1.default.urlencoded({ extended: false }));
     app.use('/api', router);
