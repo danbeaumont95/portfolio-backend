@@ -26,8 +26,8 @@ const options = {
 };
 mongoose_1.default.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, })
     .then(() => {
-    const app = (0, express_1.default)();
-    app.use((0, cors_1.default)(options));
+    const app = express_1.default();
+    app.use(cors_1.default(options));
     app.use(express_1.default.json());
     app.use(express_1.default.urlencoded({ extended: false }));
     app.use('/api', router);
@@ -37,5 +37,5 @@ mongoose_1.default.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: t
     app.listen(port, () => {
         console.log(`Server listening at ${port}`);
     });
-    (0, routes_1.default)(app);
+    routes_1.default(app);
 });

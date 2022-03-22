@@ -56,7 +56,7 @@ function getAllProjectsHandler(req, res) {
             data: {}
         };
         try {
-            const allProjects = yield (0, projects_1.getAllProjects)();
+            const allProjects = yield projects_1.getAllProjects();
             if (!allProjects) {
                 respBody.message = '[BadRequest] Unable to find projects';
                 return res.status(200).json(respBody);
