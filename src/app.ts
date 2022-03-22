@@ -3,7 +3,6 @@ require('dotenv').config({ path: __dirname + '/.env' });
 import cors from 'cors';
 import mongoose, { ConnectOptions } from 'mongoose';
 
-
 import routes from './routes';
 const router = express.Router();
 
