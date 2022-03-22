@@ -4,7 +4,6 @@ console.log(__dirname, '__dirname');
 require('dotenv').config();
 import cors from 'cors';
 import mongoose, { ConnectOptions } from 'mongoose';
-
 import routes from './routes';
 const router = express.Router();
 
