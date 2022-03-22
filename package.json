@@ -2,7 +2,7 @@
   "name": "new-porfolio-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.ts",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon --config nodemon.json src/app.ts",
     "build": "tsc",

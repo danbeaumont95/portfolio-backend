@@ -13,7 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-require('dotenv').config({ path: __dirname + '/.env' });
+console.log(__dirname, '__dirname');
+// require('dotenv').config({ path: __dirname + '../.env' });
+require('dotenv').config();
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const routes_1 = __importDefault(require("./routes"));
